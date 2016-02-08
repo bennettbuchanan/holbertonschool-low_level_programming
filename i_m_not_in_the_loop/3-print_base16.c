@@ -12,7 +12,6 @@ void print_base16(void)
       print_char(letter);
       letter++;
     }
-  /* redefine letter to 65 */
   letter = 65;
   /* initiate a loop to print letters */
   for (i = 0; i < 6; i++)
