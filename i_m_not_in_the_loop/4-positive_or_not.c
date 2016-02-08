@@ -11,12 +11,10 @@ void positive_or_not(int n)
     {
       print_char(P);
     }
-  
   if (n < 0)
     {
       print_char(N);
     }
-  
   if (n == 0)
     {
       print_char(Z);
