@@ -8,6 +8,7 @@ void print_base16(void)
   /* initiate a loop to print entire alphabet */
   for (i = 0; i < 10; i++)
     {
+      /* call print_char function with variable as argument */
       print_char(letter);
       letter++;
     }
@@ -16,6 +17,7 @@ void print_base16(void)
   /* initiate a loop to print letters */
   for (i = 0; i < 6; i++)
     {
+      /* call print_char function with variable as argument */
       print_char(letter);
       letter++;
     }
