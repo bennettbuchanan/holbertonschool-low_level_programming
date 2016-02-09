@@ -2,7 +2,7 @@
 
 int main(void)
 {
-  positive_or_not(98));
+  positive_or_not(98);
   positive_or_not(0);
   positive_or_not(402);
   positive_or_not(-459);
