@@ -7,12 +7,12 @@ void print_combination_1(void)
   /* loop through ten times */
   for (i = 0; i < 10; i++)
     {
-      print_char(i + 48);
+      print_char(i + 48); /* print i plus 48 for correct output */
       /* do not print comma and space after 9 */
       if (i < 9)
 	{
-	  print_char(',');
-	  print_char(' ');
+	  print_char(','); /* print comma */
+	  print_char(' '); /* print space */
 	}
     }
 }

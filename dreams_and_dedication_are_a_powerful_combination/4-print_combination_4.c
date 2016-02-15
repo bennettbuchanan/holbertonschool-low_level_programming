@@ -11,16 +11,16 @@ void print_combination_4(void)
 	  for (k = i; k < 10; k++)
 	    { /* ones place initializes at var j + 1 */
 	      for (l = j + 1; l < 10; l++)
-		{ print_char(i + 48);
-		  print_char(j + 48);
-		  print_char(' ');
-		  print_char(k + 48);
-		  print_char(l + 48);
+		{ print_char(i + 48);/* print i plus 48 on ascii */
+		  print_char(j + 48);/* print j plus 48 on ascii */
+		  print_char(' ');/* print space */
+		  print_char(k + 48);/* print k plus 48 on ascii */
+		  print_char(l + 48);/* print l plus 48 on ascii */
 		  if (i == 9 && j == 8)/* do not print after 98 */
 		    {}
 		  else
-		    { print_char(',');
-		      print_char(' ');}
+		    { print_char(',');/* print comma */
+		      print_char(' ');}/* print space */
 		}
 	    }
 	}
