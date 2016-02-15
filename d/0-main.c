@@ -3,14 +3,14 @@
 int main(void)
 {
   printf_number(98);
-  print_char('\n');
+  printf("\n");
   printf_number(402);
-  print_char('\n');
+  printf("\n");
   printf_number(1024);
-  print_char('\n');
+  printf("\n");
   printf_number(0);
-  print_char('\n');
+  printf("\n");
   printf_number(-98);
-  print_char('\n');
+  printf("\n");
   return (0);
 }
