@@ -1,6 +1,6 @@
 #include <stdio.h>
 /* find and print the largest prime factor of the number 612852475143 */
-int main()
+int main(void)
 {   
   long int n = 612852475143;
   int divisor = 2;
