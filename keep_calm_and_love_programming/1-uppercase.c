@@ -11,11 +11,10 @@ char uppercase(char c)
 {
   if (c > 96 && c < 123)
     {
-      print_char(c - 32); /* print uppercase letter */
+      return (c - 32); /* print uppercase letter */
     }
   else
     {
-      print_char(c); /* print character */
+      return (c); /* print character */
     }
-  return (0);
 }
