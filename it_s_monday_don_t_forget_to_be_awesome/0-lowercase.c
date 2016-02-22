@@ -1,17 +1,9 @@
-#include <unistd.h>
-
-/* include print_char function to print letters */
-int print_char(char c)
-{
-  return (write(1, &c, 1)); /* write to output */
-}
-
 /* call char lowercase function */
 char lowercase(char c)
 {
-  if (c > 64 && c < 91)
+  if (c > 64 && c < 91) /* if the character is uppercase */
     {
-      return (c + 32); /* print uppercase letter */
+      return (c + 32); /* print lowercase letter */
     }
   else
     {

@@ -5,11 +5,11 @@ int main(void)
 {
   char c;
 
-  c = lowercase('a');
+  c = lowercase('z');
   printf("%c\n", c);
   c = lowercase('h');
   printf("%c\n", c);
-  c = lowercase('A');
+  c = lowercase('Z');
   printf("%c\n", c);
   c = lowercase('{');
   printf("%c\n", c);
