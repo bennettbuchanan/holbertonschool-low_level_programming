@@ -1,4 +1,5 @@
 #include <unistd.h>
+#include "my_functions.h"
 
 int print_char(char c)
 {
