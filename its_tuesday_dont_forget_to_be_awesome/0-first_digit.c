@@ -19,4 +19,5 @@ int first_digit(int n)
       n = n - (digit * power);
       power = 1;
       length_stored--;}
+  return (0);
 }
