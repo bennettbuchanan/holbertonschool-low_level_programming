@@ -1,6 +1,5 @@
 #include "my_functions.h"
 #include <unistd.h>
-#include <stdio.h>
 
 int print_char(char c)
 {
@@ -9,8 +8,9 @@ int print_char(char c)
 
 int string_to_integer(char *s)
 {
-  int i, temp;
-  int n = 0;
+  int i, temp, digit;
+  int long n;
+  int place = 0;
   int isNegative = 0;
   /* break out of loop when string reaches 0 in memory */
   for (i = 0; i >= 0; i++) {
@@ -31,13 +31,36 @@ int string_to_integer(char *s)
       }
     else if (s[i] > 47 && s[i] < 58)
       {
-	if (isNegative % 2 != 0)
-	  {
-	    printf("%c", 45);
+	digit = s[i] - 48;
+	if (place == 0) {
+	  n = digit;
+	  place += 1;
+
+	  if (isNegative %2 != 0) {
+	    place += 1;
 	  }
-	n += 1;
-	printf("%c", s[i]);
+	}
+	else if (place > 0) {
+	  n *= 10;
+	  n += digit;
+	  place += 1;
+	}
       }
   }
-  return (0);
+  
+  if (n == 2147483648 && place > 10) {
+    return (n);
+  }
+  else if (n == 2147483648 && place == 10) {
+    return 0;
+  }
+  else if (n > 2147483648) {
+    return 0;
+  }
+  else {
+    if (isNegative %2 != 0) {
+      print_char('-');
+    }
+    return (n);
+  }
 }

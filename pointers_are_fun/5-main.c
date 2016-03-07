@@ -7,21 +7,21 @@ int main(void)
 
   n = string_to_integer("98");
   printf("%d\n", n);
-  n = string_to_integer("-402jjj9989");
+  n = string_to_integer("-402");
   printf("%d\n", n);
   n = string_to_integer("        ++++++-----+++++--98");
   printf("%d\n", n);
-  n = string_to_integer("2147483647");
+  n = string_to_integer("--2147483647");
   printf("%d\n", n);
   n = string_to_integer("0");
   printf("%d\n", n);
+  n = string_to_integer("-----2147483647 dslsjklf 302942 sd");
+  printf("%d\n", n);
   n = string_to_integer("-2147483648");
   printf("%d\n", n);
-  n = string_to_integer("2147483648");
+  n = string_to_integer("342342321474348340952740893572489572024375203745902834758983648");
   printf("%d\n", n);
-  n = string_to_integer("34234232147483648");
-  printf("%d\n", n);
-  n = string_to_integer("Suite 402 dsfsdjfk ");
+  n = string_to_integer("Suite 402");
   printf("%d\n", n);
   n = string_to_integer("      +    +   -   -98 Battery Street; San Francisco, CA 94111 - USA         ");
   printf("%d\n", n);
