@@ -7,7 +7,7 @@ int main(void)
 
   n = string_to_integer("98");
   printf("%d\n", n);
-  n = string_to_integer("-402");
+  n = string_to_integer("-402jjj9989");
   printf("%d\n", n);
   n = string_to_integer("        ++++++-----+++++--98");
   printf("%d\n", n);
@@ -21,7 +21,7 @@ int main(void)
   printf("%d\n", n);
   n = string_to_integer("34234232147483648");
   printf("%d\n", n);
-  n = string_to_integer("Suite 402");
+  n = string_to_integer("Suite 402 dsfsdjfk ");
   printf("%d\n", n);
   n = string_to_integer("      +    +   -   -98 Battery Street; San Francisco, CA 94111 - USA         ");
   printf("%d\n", n);
