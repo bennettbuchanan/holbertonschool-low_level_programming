@@ -11,6 +11,7 @@ void print_string(char *str)
       }
     else
       {
+	/* print char of string */
 	print_char(str[i]);	
       }
   }

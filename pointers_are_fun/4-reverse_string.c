@@ -1,31 +1,22 @@
-#include "my_functions.h"
-#include <unistd.h>
-
-int print_char(char c)
-{
-  return (write(1, &c, 1));
-}
-
 void reverse_string(char *s)
 {
-  int i;
+  int i, j, k;
+  
   /* find the length of the string */
   for (i = 0; i >= 0; i++) {
     if (s[i] == 0) {     
       break;
     }
   }
-  /* subtract 1 from i to not print last character */
+  /* subtract 1 from i */
   i -= 1;
-  /* print the string subtracting from the length index */
-  for (; i >= 0; i--) {
-    if (i == 0) {     
-      break;
-    }
-    else {
-      print_char(s[i]);
-    }
+  for(j = 0; j < i; j++){
+    /* store last array item in k */
+    k = s[i];
+    s[i] = s[j];
+    /* assign first array item as k */
+    s[j] = k;
+    /* subtract one to cycle through array */
+    i--;
   }
-  print_char(s[i]);
-  print_char('\n');
 }
