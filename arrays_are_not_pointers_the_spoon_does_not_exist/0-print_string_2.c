@@ -1,4 +1,4 @@
-int print_char(char c);
+#include "my_functions.h"
 
 void print_string_2(char *str)
 {

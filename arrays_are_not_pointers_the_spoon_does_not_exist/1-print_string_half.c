@@ -1,4 +1,4 @@
-int print_char(char c);
+#include "my_functions.h"
 
 void print_string_half(char *str)
 {
@@ -10,17 +10,17 @@ void print_string_half(char *str)
 		len++;
 	}
 
-	if (len %2 == 0) /* test evenness */
+	if (len % 2 == 0) /* test evenness */
 	{
 		i = len / 2;
 	}
 
-	else if (len %2 != 0)
+	else if (len % 2 != 0) /* test oddness */
 	{
 		i = (len / 2) + 1;
 	}
 
-	for (; i < len; i++)
+	for (; i < len; i++) /* print the second half */
 		{
 			print_char(str[i]);
 		}

@@ -1,13 +1,4 @@
-int print_char(char c);
-void min();
-void print_num(int n);
-void neg_zero(int n);
-
-void min()
-{
-   print_char('-'); /* print minus sign */
-   print_char('2'); /* print digit '2' */
-}
+#include "my_functions.h"
 
 void print_array(int *a, int n) 
 {
@@ -18,7 +9,7 @@ void print_array(int *a, int n)
 	{
 		number = a[i];
 		neg_zero(number); /* print out the number */
-		if(i != n - 1)
+		if(i != n - 1) /* handle the last number */
 		{
 			print_char(',');
 			print_char(' ');
@@ -28,6 +19,12 @@ void print_array(int *a, int n)
 			print_char('\n');
 		}
 	}
+}
+
+void min()
+{
+   print_char('-'); /* print minus sign */
+   print_char('2'); /* print digit '2' */
 }
 
 void neg_zero(int n)
