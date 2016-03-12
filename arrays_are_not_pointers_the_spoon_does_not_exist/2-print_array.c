@@ -2,22 +2,27 @@
 
 void print_array(int *a, int n) 
 {
-	int i;
-	int number;
-
-	for (i = 0; i < n; i++)
+	int i, number;
+	if (n > 0)
 	{
-		number = a[i];
-		neg_zero(number); /* print out the number */
-		if(i != n - 1) /* handle the last number */
+		for (i = 0; i < n; i++)
 		{
-			print_char(',');
-			print_char(' ');
+			number = a[i];
+			neg_zero(number); /* print out the number */
+			if(i != n - 1) /* handle the last number */
+			{
+				print_char(',');
+				print_char(' ');
+			}
+			else
+			{
+				print_char('\n');
+			}
 		}
-		else
-		{
-			print_char('\n');
-		}
+	}
+	else if (n <= 0)
+	{
+		print_char('\n');
 	}
 }
 
