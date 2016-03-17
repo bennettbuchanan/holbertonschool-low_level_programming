@@ -10,5 +10,5 @@ int strings_compare(char *s1, const char *s2)
 	}
 	j++;
   }
-  return(s1[j] - s2[j]);
+  return(s1[j] - s2[j]); /* return difference in chars */
 }
