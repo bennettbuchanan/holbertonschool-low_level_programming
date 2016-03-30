@@ -1,6 +1,6 @@
 int factorial(int n)
 {
-  if (n < 0)
+  if (n < 0 || n > 12)
   {
     return -1;
   }
