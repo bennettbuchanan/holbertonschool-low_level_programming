@@ -1,4 +1,4 @@
-#include "my_functions.h"
+int print_char(char c);
 
 void print_string(char *str)
 {
@@ -7,7 +7,7 @@ void print_string(char *str)
   for (i = 0; i >= 0; i++) {
     if (str[i] == 0)
       {
-	       break;
+	break;
       }
     else
       {

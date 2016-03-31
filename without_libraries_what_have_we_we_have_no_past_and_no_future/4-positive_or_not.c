@@ -1,4 +1,5 @@
-#include "my_functions.h"
+int print_char(char c);
+
 /* call positive_or_not function */
 void positive_or_not(int n)
 {
@@ -20,5 +21,5 @@ void positive_or_not(int n)
     {
       /* call print_char function with variable as argument */
       print_char(Z);
-    }  
+    }
 }

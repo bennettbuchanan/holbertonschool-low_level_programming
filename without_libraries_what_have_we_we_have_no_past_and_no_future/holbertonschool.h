@@ -21,5 +21,4 @@ char *cap_string(char *);
 int power(int x, int y);
 int square_root(int n);
 int is_prime_number(int n);
-int count_square(int n, int temp);
-int count_square(int n, int temp);
+int print_char(char c);

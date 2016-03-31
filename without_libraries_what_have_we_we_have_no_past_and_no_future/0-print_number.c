@@ -1,4 +1,5 @@
-#include "my_functions.h"
+void min();
+int print_char(char c);
 
 /* for number -2147483648, print minus sign and first digit */
 void min()

@@ -10,7 +10,7 @@ char *nconcat_strings(char *dest, const char *src, int n)
   while(src[src_len] != '\0') /* find length of string */
   {
     src_len++;
-  } 
+  }
   if (n > src_len)
   {
   	n = src_len;

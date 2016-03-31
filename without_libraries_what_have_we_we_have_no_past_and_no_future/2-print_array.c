@@ -1,6 +1,9 @@
-#include "my_functions.h"
+void print_num(int n);
+void min();
+void neg_zero(int n);
+int print_char(char c);
 
-void print_array(int *a, int n) 
+void print_array(int *a, int n)
 {
 	int i, number;
 	if (n > 0)
@@ -33,7 +36,7 @@ void min()
 }
 
 void neg_zero(int n)
-{	
+{
   	if (n == -2147483648)
     	{
     		n = 147483648;
