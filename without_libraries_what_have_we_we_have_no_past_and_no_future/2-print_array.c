@@ -1,9 +1,4 @@
-void print_num(int n);
-void min();
-void neg_zero(int n);
-int print_char(char c);
-
-void print_array(int *a, int n)
+void print_array(int *a, int n) 
 {
 	int i, number;
 	if (n > 0)
