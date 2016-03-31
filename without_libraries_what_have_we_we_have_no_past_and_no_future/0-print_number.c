@@ -1,5 +1,8 @@
+void min(void);
+int print_char(char c);
+
 /* for number -2147483648, print minus sign and first digit */
-void min()
+void min(void)
 {
    print_char('-'); /* print minus sign */
    print_char('2'); /* print digit '2' */

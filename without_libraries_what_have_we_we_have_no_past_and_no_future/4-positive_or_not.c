@@ -1,3 +1,5 @@
+int print_char(char c);
+
 /* call positive_or_not function */
 void positive_or_not(int n)
 {

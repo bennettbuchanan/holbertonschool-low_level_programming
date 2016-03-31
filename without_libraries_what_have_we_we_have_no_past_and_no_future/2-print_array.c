@@ -1,4 +1,9 @@
-void print_array(int *a, int n) 
+int print_char(char c);
+void min(void);
+void neg_zero(int n);
+void print_num(int n);
+
+void print_array(int *a, int n)
 {
 	int i, number;
 	if (n > 0)
@@ -24,7 +29,7 @@ void print_array(int *a, int n)
 	}
 }
 
-void min()
+void min(void)
 {
    print_char('-'); /* print minus sign */
    print_char('2'); /* print digit '2' */
