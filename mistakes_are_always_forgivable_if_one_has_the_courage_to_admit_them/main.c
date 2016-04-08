@@ -1,7 +1,6 @@
-#include <stdio.h>
+#include <unistd.h>
 #include <stdlib.h>
 #include <string.h>
-#include <unistd.h>
 
 int print_char(char c);
 int addInt(int a, int b);
@@ -29,7 +28,7 @@ int main(int argc, char **argv) {
         operation = argv[2];
         op = operation[0];
         if (op == '+' || op == '-' || op == '/' || op == '*' || op == '%') {
-          functionPtr = get_op_func(op);
+          functionPtr = get_op_func(op); /* assign pointer function */
           result = process(op, first, second);
           print_number(result);
           print_char('\n');
@@ -46,6 +45,7 @@ int main(int argc, char **argv) {
 
 int process(char operation, int first, int second) {
   int result;
+  /* assign address to corresponding operation function, store in result */
   if (operation == '+') {
     int (*functionPtr)(int x, int y) = &op_add;
     result = functionPtr(first, second);
@@ -105,5 +105,6 @@ void print_number(int n)
 
 int print_char(char c)
 {
+  /* write a character to output */
   return (write(1, &c, 1));
 }
