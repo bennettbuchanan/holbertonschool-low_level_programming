@@ -44,7 +44,7 @@ int check(char **argv) {
     }
   }
   for (i = 0 ; argv[3][i] != '\0' ; i++) {
-    if (argv[1][i] < 48 || argv[3][i] > 57) {
+    if (argv[3][i] < 48 || argv[3][i] > 57) {
       return (1);
     }
   }
