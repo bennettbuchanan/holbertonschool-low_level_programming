@@ -36,15 +36,22 @@ int main(int argc, char **argv) {
 }
 
 int check(char **argv) {
-  int i;
+  int i = 0;
+  int j = 0;
+  if (argv[1][0] == 45) {
+    i = 1;
+  }
+  if (argv[3][0] == 45) {
+    j = 1;
+  }
   /* loop through to see if non int chars are in option */
-  for (i = 0 ; argv[1][i] != '\0' ; i++) {
+  for (; argv[1][i] != '\0' ; i++) {
     if (argv[1][i] < 48 || argv[1][i] > 57) {
       return (1);
     }
   }
-  for (i = 0 ; argv[3][i] != '\0' ; i++) {
-    if (argv[3][i] < 48 || argv[3][i] > 57) {
+  for ( ; argv[3][j] != '\0' ; j++) {
+    if (argv[3][j] < 48 || argv[3][j] > 57) {
       return (1);
     }
   }
