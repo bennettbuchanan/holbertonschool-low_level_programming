@@ -3,38 +3,52 @@
 #include <string.h>
 
 int print_char(char c);
-int addInt(int a, int b);
 int (*get_op_func(char c))(int, int);
 int (*functionPtr)(int,int);
 void min(void);
 int print_char(char c);
 void print_number(int n);
+int check(char **argv);
 
 int main(int argc, char **argv) {
-  int i, result, first, second;
-  char * operation;
+  int result, first, second, true;
   char op;
-  if (argc == 4) {
-    for (i = 0; i < argc; i++) {
-      if (i == 2) {
-        first = atoi(argv[1]);
-        second = atoi(argv[3]);
-        operation = argv[2];
-        op = operation[0];
-        if (op == '+' || op == '-' || op == '/' || op == '*' || op == '%') {
-          functionPtr = get_op_func(op); /* assign pointer function */
-          result = functionPtr(first, second);
-          print_number(result);
-          print_char('\n');
-          return (0);
-        }
-        if (op != '+' || op != '-' || op != '/' || op != '*' || op != '%') {
-          return (1);
-        }
-      }
+  if (argc == 4 && argv[2][1] == '\0') {
+    true = check(argv);
+    if (true == 1) {
+      return (1);
+    }
+    first = atoi(argv[1]);
+    second = atoi(argv[3]);
+    op = argv[2][0];
+    if (op == '+' || op == '-' || op == '/' || op == '*' || op == '%') {
+      functionPtr = get_op_func(op); /* assign pointer function */
+      result = functionPtr(first, second);
+      print_number(result);
+      print_char('\n');
+      return (0);
+    }
+    if (op != '+' || op != '-' || op != '/' || op != '*' || op != '%') {
+      return (1);
     }
   }
   return (1);
+}
+
+int check(char **argv) {
+  int i;
+  /* loop through to see if non int chars are in option */
+  for (i = 0 ; argv[1][i] != '\0' ; i++) {
+    if (argv[1][i] < 48 || argv[1][i] > 57) {
+      return (1);
+    }
+  }
+  for (i = 0 ; argv[3][i] != '\0' ; i++) {
+    if (argv[1][i] < 48 || argv[3][i] > 57) {
+      return (1);
+    }
+  }
+  return (0);
 }
 
 /* for number -2147483648, print minus sign and first digit */
