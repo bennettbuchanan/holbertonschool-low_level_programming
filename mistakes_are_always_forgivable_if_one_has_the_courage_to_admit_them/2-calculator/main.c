@@ -29,7 +29,7 @@ int main(int argc, char **argv) {
         op = operation[0];
         if (op == '+' || op == '-' || op == '/' || op == '*' || op == '%') {
           functionPtr = get_op_func(op); /* assign pointer function */
-          result = process(op, first, second);
+          result = functionPtr(first, second);
           print_number(result);
           print_char('\n');
           return (0);
@@ -41,32 +41,6 @@ int main(int argc, char **argv) {
     }
   }
   return (1);
-}
-
-int process(char operation, int first, int second) {
-  int result;
-  /* assign address to corresponding operation function, store in result */
-  if (operation == '+') {
-    int (*functionPtr)(int x, int y) = &op_add;
-    result = functionPtr(first, second);
-  }
-  if (operation == '-') {
-    int (*functionPtr)(int x, int y) = &op_sub;
-    result = functionPtr(first, second);
-  }
-  if (operation == '*') {
-    int (*functionPtr)(int x, int y) = &op_mul;
-    result = functionPtr(first, second);
-  }
-  if (operation == '/') {
-    int (*functionPtr)(int x, int y) = &op_div;
-    result = functionPtr(first, second);
-  }
-  if (operation == '%') {
-    int (*functionPtr)(int x, int y) = &op_mod;
-    result = functionPtr(first, second);
-  }
-  return result;
 }
 
 /* for number -2147483648, print minus sign and first digit */
