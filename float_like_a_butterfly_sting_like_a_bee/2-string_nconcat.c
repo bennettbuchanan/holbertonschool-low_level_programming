@@ -23,6 +23,7 @@ char *string_nconcat(char *s1, char *s2, int n) {
     concat[i] = s2[j];
     j++;
   }
+  concat[i] = '\0';
   return (concat);
 }
 

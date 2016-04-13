@@ -4,6 +4,7 @@
 char *int_to_str(int, int, char *);
 int find_len(int);
 char *min(char *);
+char *test(int n, int j, int len, char *str);
 
 char *int_to_string(int n) {
   char *str;
@@ -39,7 +40,7 @@ int find_len(int n)
   if (n < 0) {
     n *= -1;
   }
-  for (i = n; i > 0; i = i / 10)/* find the decimal len of n */
+  for (i = n; i > 0; i = i / 10) /* find the decimal len of n */
     {
       len++;
     }
@@ -48,30 +49,38 @@ int find_len(int n)
 
 char *int_to_str(int n, int len, char *str)
 {
-  int power = 1;
   int j = 0;
-  int digit, len_stored, i;
   if (n == 0)
     {
       str[0] = '0';
       str[1] = '\0';
       return (str);
-    } /* print digit '0' */
+    }
+  /* If n is INT_MIN, remove store minus sign and first digit */
   if (n == -2147483648)
     {
       n = 147483648;
       str = min(str);
       len -= 1;
       j += 2;
-    } /* call min function */
-  if (n < 0 && j != 2)/* print '-' and make n make positive*/
+    }
+
+  str = test(n, j, len, str);
+  return (str);
+}
+
+char *test(int n, int j, int len, char *str)
+{
+  int digit, len_stored, i;
+  int power = 1;
+  if (n < 0 && j != 2) /* make n make positive */
     {
       n *= -1;
       str[0] = '-';
       j++;
-    } /* print minus sign */
-  len_stored = len;/* store value of len for later subtraction*/
-  for (;len > 0; len--)/* subtract len by one for each iteration */
+    }
+  len_stored = len; /* store value of len for later subtraction */
+  for (;len > 0; len--) /* subtract len by one for each iteration */
     {
       for (i = 1; len_stored > i; i++)
       {
@@ -84,7 +93,7 @@ char *int_to_str(int n, int len, char *str)
       power = 1;
       len_stored--;
     }
-  return (str);
+  return(str);
 }
 
 /* for number -2147483648, print minus sign and first digit */

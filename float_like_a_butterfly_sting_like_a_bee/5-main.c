@@ -10,7 +10,7 @@ int main(void)
   str = int_to_string(98888);
   printf("%s\n", str);
   free(str);
-  str = int_to_string(402);
+  str = int_to_string(992);
   printf("%s\n", str);
   free(str);
   str = int_to_string(-12);
