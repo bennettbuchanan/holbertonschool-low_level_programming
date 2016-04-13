@@ -5,7 +5,7 @@ void print_number(int n);
 void min();
 int print_char(char c);
 
-int **talloc_grid(int width, int height) {
+int **alloc_grid(int width, int height) {
   int i, j;
   int **grid;
 
