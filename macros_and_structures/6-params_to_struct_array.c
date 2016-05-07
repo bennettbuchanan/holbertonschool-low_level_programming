@@ -23,7 +23,6 @@ struct Param *params_to_struct_array(int ac, char **av)
     param = malloc(sizeof(char) * (len + 1));
     if (param == NULL)
       return (NULL);
-      free(param);
     param = av[i];
     array[i].tab = string_split(av[i], len);
   }

@@ -1,7 +1,6 @@
 #include "str_struct.h"
 #include <unistd.h>
 #include <stdlib.h>
-#include <stdio.h>
 #include "limits.h"
 
 int print_char(char c);
