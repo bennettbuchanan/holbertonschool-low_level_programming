@@ -1,5 +1,4 @@
 #include <stdlib.h>
-#include <stdio.h>
 #include "list.h"
 
 char *str_copy(char *, int);

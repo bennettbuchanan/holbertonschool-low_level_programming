@@ -59,7 +59,7 @@ char *str_copy(char *src, int len)
     return (NULL);
 
   /* Copy the string. */
-  for(i = 0; i < len; ++i){
+  for(i = 0; i < len + 1; ++i){
     dest[i] = src[i];
   }
 

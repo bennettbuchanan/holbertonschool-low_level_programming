@@ -1,6 +1,5 @@
 #include <stdlib.h>
 #include "list.h"
-#include <stdio.h>
 
 int list_size(List *list);
 

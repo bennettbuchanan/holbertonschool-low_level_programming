@@ -16,12 +16,7 @@ int main(void)
   print_list(list);
   if (add_node(&list, "CA 94111") == 1)
     return (1);
-  print_list(list);
-  if (insert_in_list(&list, "insert here", 1) == 1)
-    return (1);
-  print_list(list);
-  if (insert_in_list(&list, "School", 2) == 1)
-    return (1);
+
   print_list(list);
   return (0);
 }
