@@ -12,16 +12,16 @@ void remove_from_list(List **list, int index)
   head = *list;
   list_len = list_size(*list);
   if (index == 0) {
-    head = head->next;
-    *list = head;
+    prev = prev->next;
+    *list = prev;
+    free(head->str);
+    free(head);
   }
   if(index < list_len && index > 0) {
-    /* Traverse the list so that prev is prior to the index. */
-    for(j = index; j > 1; --j) {
+    for(j = index; j > 1; --j) { /* Prev is prior to the index. */
       prev = prev->next;
     }
-    /* Traverse the list so that head is the same as the index. */
-    for(; index > 0; --index) {
+    for(; index > 0; --index) { /* Head is the same as the index. */
       head = head->next;
     }
     prev->next = head->next; /* Link the previous node with the next node. */

@@ -25,7 +25,7 @@ int main(void)
   if (add_node(&list, "five") == 1)
     return (1);
   print_list(list);
-  remove_from_list(&list, -1);
+  remove_from_list(&list, 234);
   print_list(list);
   free_list(list);
   return (0);
