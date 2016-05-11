@@ -1,7 +1,7 @@
 CC = gcc
 CFLAGS = -Wall -Werror -Wextra -pedantic
 EXEC_FILE = 3-cat
-C_FILES = 3-cat.c
+C_FILES = 3-cat.c print_char.c
 OBJECTS	:= $(C_FILES:.c=.o)
 
 $(EXEC_FILE): $(OBJECTS)
