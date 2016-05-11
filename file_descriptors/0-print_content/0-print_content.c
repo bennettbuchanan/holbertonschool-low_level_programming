@@ -6,7 +6,6 @@
 
 #define BUFF_SIZE 32
 
-int print_char(char c);
 int print_buff(int len, int fd, char buffer[BUFF_SIZE + 1]);
 
 int main(void) {
@@ -40,7 +39,7 @@ int print_buff(int len, int fd, char buffer[BUFF_SIZE + 1]) {
   while(buffer[len] < BUFF_SIZE) {
     buffer[len] = '\0';
     for(i = 0; buffer[i] != '\0'; ++i) {
-      print_char(buffer[i]);
+      write(1, &buffer[i], 1);
     }
     /* Move to next series 32 of characters. */
     len = read(fd, buffer, BUFF_SIZE);
@@ -54,28 +53,7 @@ int print_buff(int len, int fd, char buffer[BUFF_SIZE + 1]) {
   buffer[len] = '\0';
   /* Print the remaining characters. */
   for(i = 0; buffer[i] != '\0'; ++i) {
-    print_char(buffer[i]);
+    write(1, &buffer[i], 1);
   }
   return(0);
 }
-
-
-
-/*
-
-int main(void) {
-  char ch;
-
-  FILE* p = fopen("lorem_ipsum", "r");
-  if (p == NULL) return (1);
-
-  while((ch = fgetc(p)) != EOF) {
-    print_char(ch);
-  }
-
-  if(fclose(p) == 1) return (1);
-
-  return (0);
-}
-
-*/

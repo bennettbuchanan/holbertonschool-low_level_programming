@@ -7,13 +7,15 @@ int print_char(char c);
 
 int main(int argc, char **argv) {
   struct stat fileStat;
-
+  int err;
   if (argc != 2) return (1);
-
-  if(lstat(argv[1], &fileStat) < 0) return 1;
-
+  err = lstat(argv[1], &fileStat);
+  if (err == -1) {
+    perror("lstat");
+    return (1);
+  }
   if (S_ISLNK(fileStat.st_mode)) {
-    print_char('l');
+    print_char('l'); /* Print the permissions of the symbolic link. */
   } else {
     S_ISDIR(fileStat.st_mode) ? print_char('d') : print_char('-');
   }
@@ -26,9 +28,6 @@ int main(int argc, char **argv) {
   fileStat.st_mode & S_IROTH ? print_char('r') : print_char('-');
   fileStat.st_mode & S_IWOTH ? print_char('w') : print_char('-');
   fileStat.st_mode & S_IXOTH ? print_char('x') : print_char('-');
-  printf("\nSymbolic links?\n");
-  S_ISLNK(fileStat.st_mode) ? printf("link") : printf("not link");
-  printf("\n");
-
+  print_char('\n');
   return (0);
 }
