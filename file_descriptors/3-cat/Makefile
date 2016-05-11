@@ -8,7 +8,6 @@ $(EXEC_FILE): $(OBJECTS)
 	$(CC) $(CFLAGS) $^ -o $@
 
 $(OBJECTS): $(C_FILES)
-	$(CC) $(CFLAGS) -c $^ -o $@
 
 clean:
 	-rm -f $(OBJECTS)
