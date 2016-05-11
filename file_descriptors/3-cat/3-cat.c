@@ -97,6 +97,7 @@ int print_file(int len, int fd, char buffer[BUFF_SIZE + 1]) {
 void print_string(char *str) {
   int i;
   for(i = 0; str[i] != '\0'; ++i) {
+    /* Print each char in a string. */
     print_char(str[i]);
   }
 }
