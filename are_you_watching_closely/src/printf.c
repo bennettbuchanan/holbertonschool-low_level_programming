@@ -1,8 +1,4 @@
 #include "header.h"
-int print_str(char *);
-int print_char(char);
-void print_num(int);
-int get_num_len(int n, int i);
 
 int printf(const char *format, ...)
 {
@@ -21,7 +17,11 @@ int printf(const char *format, ...)
 
                 if (format[i] == '%') {
                         len += handle_char(format[i + 1], args);
-                        i += 2;
+                        if (format[i + 1] == '%') {
+                                i += 1;
+                        } else {
+                                i += 2;
+                        }
                 }
                 len += print_char(format[i]);
                 ++i;
@@ -33,19 +33,30 @@ int printf(const char *format, ...)
 
 int handle_char(char c, va_list args)
 {
-        char d, *s;
-        int len = 0;
-
+        /* Handle all the cases passed in the string. */
         switch(c) {
                 case 's':
-                        s = va_arg(args, char *);
-                        len = print_str(s);
-                        return len;
+                        return s_handler(args);
                 case 'd':
-                        d = va_arg(args, int);
-                        print_num(d);
-                        len = get_num_len(d, 0);
-                        return len;
+                        return d_handler(args);
+                case 'i':
+                        return i_handler(args);
+                case 'u':
+                        return u_handler(args);
+                case 'c':
+                        return c_handler(args);
+                case 'p':
+                        return p_handler(args);
+                case 'o':
+                        return o_handler(args);
+                case 'X':
+                        return X_handler(args);
+                case 'x':
+                        return x_handler(args);
+                case '%':
+                        return 0;
+                default:
+                        return default_handler(c);
         }
         return 0;
 }
@@ -75,36 +86,4 @@ int print_char(char c)
 {
         write(1, &c, 1);
         return 1;
-}
-
-/*
- * print_num() - Prints the number passed as parameter to stdout.
- * @arg1: The number to be printed.
- *
- * Return: Null.
- */
-void print_num(int n)
-{
-        if (n >= 10)
-                {
-                        print_num(n / 10);
-                }
-        print_char(n % 10 + 48);
-}
-
-/*
- * get_num_len() - Recursively divide a number by ten, adding one to i for each
- operation. Return the length of the number given.
- * @n: The number to find the length.
- * @i: The iteration starting point. This should be 0.
- *
- * Return: The lenth of the number passed.
- */
-int get_num_len(int n, int i)
-{
-        if (n >= 10)
-                {
-                        return get_num_len(n / 10, i + 1);
-                }
-        return i + 1;
 }
