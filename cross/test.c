@@ -2,39 +2,41 @@
 
 int print_char(char c);
 int string_to_integer(char *s);
+void top_handler(int n);
+void mid_handler(int n);
+void bottom_handler(int n);
 
 int main (int argc, char *argv[])
 {
-        int t = 0, i, j;
+        int t = 0;
         int n = string_to_integer(argv[1]);
-        int half = n / 2;
 
         if (n % 2 != 0) {
                 n = n - 1;
                 t = 1;
         }
 
-        /* Handle the top half. */
-        for(i = 0; i < half; ++i) {
-                for(j = 0; j <= n; ++j) {
-                        if (j == i) {
-                                print_char('\\');
-                        } else if (j == n - i) {
-                                print_char('/');
-                        } else {
-                                print_char(' ');
-                        }
-                        if (j == n) {
-                                print_char('\n');
-                        }
-                }
-        }
+        top_handler(n);
 
-        /* Handle the middle, if n is odd. */
         if (t == 1) {
+                mid_handler(n);
+        }
+
+        bottom_handler(n);
+
+        return 0;
+}
+
+void top_handler(int n)
+{
+        int i, j;
+        /* Handle the top n / 2. */
+        for(i = 0; i < n / 2; ++i) {
                 for(j = 0; j <= n; ++j) {
-                        if (j == half) {
-                                print_char('X');
+                        if (j == i) {
+                                print_char('\\');
+                        } else if (j == n - i) {
+                                print_char('/');
                         } else {
                                 print_char(' ');
                         }
@@ -43,9 +45,28 @@ int main (int argc, char *argv[])
                         }
                 }
         }
+}
 
-        /* Handle the bottom half. */
-        for(i -= 1; i >= 0; --i) {
+void mid_handler(int n)
+{
+        int j;
+        for(j = 0; j <= n; ++j) {
+                if (j == n / 2) {
+                        print_char('X');
+                } else {
+                        print_char(' ');
+                }
+                if (j == n) {
+                        print_char('\n');
+                }
+        }
+}
+
+void bottom_handler(int n)
+{
+        int i, j;
+        /* Handle the bottom n / 2. */
+        for(i = n / 2 - 1; i >= 0; --i) {
                 for(j = 0; j <= n; ++j) {
                         if (j == i) {
                                 print_char('/');
@@ -59,7 +80,6 @@ int main (int argc, char *argv[])
                         }
                 }
         }
-        return 0;
 }
 
 int print_char(char c)
