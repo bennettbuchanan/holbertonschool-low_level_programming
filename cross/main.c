@@ -9,13 +9,19 @@
  */
 int main (int argc, char *argv[])
 {
-        int t = 0, n = str_to_int(argv[1]), row_width;
+        int t = 0, n, row_width;
 
-        row_width = n - 1;
-
-        if (n < 0 || argc != 2) {
+        if (argc != 2) {
                 return 0;
         }
+
+        n = str_to_int(argv[1]);
+
+        if (n < 0) {
+                return 0;
+        }
+
+        row_width = n - 1;
 
         if (n % 2 != 0) {
                 n = n - 1;
