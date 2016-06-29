@@ -14,3 +14,4 @@ void print_next(List *);
 void free_dl_list(List *);
 int add_end_cl_list(List **, char *);
 int add_begin_cl_list(List **, char *);
+void free_cl_list(List *);

@@ -4,9 +4,10 @@
 #include "header.h"
 
 /*
- * print_dl_list() - Prints the items of the struct from list.h that are nodes
+ * print_cl_list() - Prints the items of the struct from list.h that are nodes
  * in a linked list. The loop stops when the circular linked list has been
  * cycled, then prints out the last items to demonstrate the completed cycle.
+ * If the list is NULL, do nothing.
  * @list: The linked list to be printed.
  *
  * Return: Void
@@ -15,13 +16,15 @@ void print_cl_list(List *list)
 {
         List *first = list;
 
-        while(list->next != first) {
+        if(list != NULL) {
+                while(list->next != first) {
+                        print_string(list->str);
+                        print_next(list);
+                        list = list->next;
+                }
                 print_string(list->str);
                 print_next(list);
-                list = list->next;
         }
-        print_string(list->str);
-        print_next(list);
 }
 
 /*
