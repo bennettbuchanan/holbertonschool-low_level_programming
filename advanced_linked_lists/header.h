@@ -5,6 +5,7 @@
 int print_char(char);
 int print_char(char);
 void print_string(char *);
+void print_str(char *);
 int add_end_dl_list(List **, char *);
 int add_begin_dl_list(List **, char *);
 void print_dl_list(List *);

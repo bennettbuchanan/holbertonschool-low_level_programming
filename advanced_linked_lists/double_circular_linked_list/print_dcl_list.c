@@ -15,12 +15,12 @@ void print_dcl_list(List *list)
 
         if(list != NULL) {
                 while(list->next != first) {
-                        print_string(list->str);
+                        print_str(list->str);
                         print_prev(list);
                         print_next(list);
                         list = list->next;
                 }
-                print_string(list->str);
+                print_str(list->str);
                 print_prev(list);
                 print_next(list);
         }
@@ -37,14 +37,14 @@ void print_dcl_list(List *list)
  */
 void print_next(List *list)
 {
-        print_string("\n\t");
+        print_str("\n\t");
         if (list->next == NULL)  {
-                print_string("NULL");
-                print_string("\n");
+                print_str("NULL");
+                print_str("\n");
                 return;
         }
-        print_string(list->next->str);
-        print_string("\n");
+        print_str(list->next->str);
+        print_str("\n");
 }
 
 /*
@@ -56,10 +56,24 @@ void print_next(List *list)
  */
 void print_prev(List *list)
 {
-        print_string("\n\t");
+        print_str("\n\t");
         if (list->prev == NULL) {
-                print_string("NULL");
+                print_str("NULL");
         } else {
-                print_string(list->prev->str);
+                print_str(list->prev->str);
+        }
+}
+
+/*
+ * print_str() - Prints a string to stdout.
+ * @str: A pointer to a string to be printed.
+ *
+ * Return: Void.
+ */
+void print_str(char *str)
+{
+        int i;
+        for(i = 0; str[i] != '\0'; ++i) {
+                print_char(str[i]);
         }
 }

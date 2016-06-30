@@ -2,9 +2,9 @@
 
 /*
  * print_char() - Print a single character to stdout.
- * @arg1:
+ * @c: The character to be printed.
  *
- * Return:
+ * Return: The return value of the write function.
  */
 int print_char(char c)
 {
