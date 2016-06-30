@@ -23,14 +23,14 @@ int add_end_cl_list(List **list, char *str)
 
         if(*list == NULL) {
                 node->next = node;
-                node->prev = node;
+                node->prev = NULL;
                 *list = node;
         } else {
                 while(tmp->next != first) {
                         tmp = tmp->next;
                 }
                 tmp->next = node;
-                node->prev = tmp;
+                node->prev = NULL;
                 node->next = first;
         }
         return 0;
@@ -59,14 +59,14 @@ int add_begin_cl_list(List **list, char *str)
         node->str = strdup(str);
         if (*list == NULL) {
                 node->next = node;
-                node->prev = node;
+                node->prev = NULL;
         } else {
                 while(tmp->next != first) {
                         tmp = tmp->next;
                 }
                 tmp->next = node;
                 node->next = first;
-                node->prev = tmp;
+                node->prev = NULL;
         }
         *list = node; /* List points to the newly allocated struct. */
 
