@@ -1,14 +1,14 @@
 #include "header.h"
 
 /*
- * free_cl_list() - Iterates through a given linked list and frees each string
+ * free_dcl_list() - Iterates through a given linked list and frees each string
  * and the corresponding node. Exits loop prior to complete cycle and frees the
  * last node in the list.
  * @list: A linked list.
  *
  * Return: Void
  */
-void free_cl_list(List *list) {
+void free_dcl_list(List *list) {
         List *tmp;
         List *first = list;
         while(list->next != first) {

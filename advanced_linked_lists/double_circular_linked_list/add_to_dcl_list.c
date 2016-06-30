@@ -1,67 +1,75 @@
 #include "header.h"
 
 /*
- * add_end_dl_list() - Adds a new List struct at the end of a linked list.
+ * add_end_dcl_list() - Adds a new List struct at the end of a linked list and
+ * updates the appended item to point to the first list item, thereby creating
+ * a curcluar linked list.
  * @list: The address of the first item in the list.
  * @str: The string to add as part of the new node's str attribute.
  *
  * Return: 0 if the node was successfully allocated and added and returns 1
  * if the memory allocation failed.
  */
-int add_end_dl_list(List **list, char *str)
+int add_end_dcl_list(List **list, char *str)
 {
         List *tmp = *list;
+        List *first = *list;
         List *node = malloc(sizeof(List));
         if (node == NULL) {
                 return (1);
         }
 
         node->str = strdup(str);
-        node->next = NULL;
 
         if(*list == NULL) {
+                node->next = node;
+                node->prev = node;
                 *list = node;
         } else {
-                while(tmp->next != NULL) {
+                while(tmp->next != first) {
                         tmp = tmp->next;
                 }
                 tmp->next = node;
                 node->prev = tmp;
+                node->next = first;
+                first->prev = node;
         }
         return 0;
 }
 
 /*
- * add_begin_dl_list() - Adds a new List struct at the beginning of a linked
- * list.
+ * add_begin_dcl_list() - Adds a new List struct at the beginning of a linked
+ * list and updates the item to point to the first list item, thereby creating
+ * a curcluar linked list.
  * @list: The address of the first item in the list.
  * @str: The string to add as part of the new node's str attribute.
  *
  * Return: 0 if the node was successfully allocated and added and returns 1
  * if the memory allocation failed.
  */
-int add_begin_dl_list(List **list, char *str)
+int add_begin_dcl_list(List **list, char *str)
 {
         List *node;
-        List *tmp;
+        List *tmp = *list;
+        List *first = *list;
         node = malloc(sizeof(List));
         if (node == NULL) {
                 return (1);
         }
 
         node->str = strdup(str);
-        node->next = *list;
-
         if (*list == NULL) {
-                node->prev = NULL;
+                node->next = node;
+                node->prev = node;
         } else {
-                tmp = *list;
-                tmp->prev = node;
-                node->prev = NULL;
+                while (tmp->next != first) {
+                        tmp = tmp->next;
+                }
+                first->prev = node;
+                tmp->next = node;
+                node->next = first;
+                node->prev = tmp;
         }
-
-        /* Update *list to point to the newly allocated struct. */
-        *list = node;
-
+        *list = node; /* List points to the newly allocated struct. */
         return 0;
 }

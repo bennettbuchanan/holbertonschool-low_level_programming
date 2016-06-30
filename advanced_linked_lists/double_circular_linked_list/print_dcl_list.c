@@ -1,20 +1,28 @@
 #include "header.h"
 
 /*
- * print_dl_list() - Prints the items of the struct from list.h that are nodes
- * in a linked list.
+ * print_dcl_list() - Prints the items of the struct from list.h that are nodes
+ * in a linked list. The loop stops when the circular linked list has been
+ * cycled, then prints out the last items to demonstrate the completed cycle.
+ * If the list is NULL, do nothing.
  * @list: The linked list to be printed.
  *
  * Return: Void
  */
-void print_dl_list(List *list)
+void print_dcl_list(List *list)
 {
-        while(list != NULL) {
+        List *first = list;
+
+        if(list != NULL) {
+                while(list->next != first) {
+                        print_string(list->str);
+                        print_prev(list);
+                        print_next(list);
+                        list = list->next;
+                }
                 print_string(list->str);
                 print_prev(list);
                 print_next(list);
-
-                list = list->next;
         }
 }
 

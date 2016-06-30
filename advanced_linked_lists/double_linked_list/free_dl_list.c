@@ -1,7 +1,4 @@
 #include "header.h"
-#include <stdlib.h>
-#include <stdio.h>
-#include "list.h"
 
 /*
  * free_dl_list() - Iterates through a given linked list and frees each string

@@ -1,7 +1,4 @@
 #include "header.h"
-#include <stdlib.h>
-#include <stdio.h>
-#include "list.h"
 
 /*
  * array_to_dl_list() - Takes an array of strings and creates a linked list
