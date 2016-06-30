@@ -1,9 +1,9 @@
 #include "header.h"
 
 /*
- * free_dcl_list() - Iterates through a given linked list and frees each string
- * and the corresponding node. Exits loop prior to complete cycle and frees the
- * last node in the list.
+ * free_dcl_list() - Iterates through a given linked list and frees each
+ * string and the corresponding node. Exits loop prior to complete cycle and
+ * frees the last node in the list.
  * @list: A linked list.
  *
  * Return: Void

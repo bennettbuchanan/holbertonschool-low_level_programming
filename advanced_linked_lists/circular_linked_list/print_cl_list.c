@@ -26,9 +26,9 @@ void print_cl_list(List *list)
 
 /*
  * print_next() - Print the string of the next item in the list. If the next
- * item is NULL, then print the string "NULL" instead and return. The return is
- * necessary at this point because trying to access list->next->str will result
- * in a segmentation fault.
+ * item is NULL, then print the string "NULL" instead and return. The return
+ * is necessary at this point because trying to access list->next->str will
+ * result in a segmentation fault.
  * @list The linked list from which to print the data.
  *
  * Return: Void
