@@ -9,10 +9,10 @@
  */
 void free_dl_list(List *list) {
         List *tmp;
-        while(list != NULL) {
+        while (list != NULL) {
                 tmp = list;
-                free(list->str);
-                free(tmp);
                 list = list->next;
+                free(tmp->str);
+                free(tmp);
         }
 }
