@@ -15,6 +15,10 @@ int ht_put(HashTable *hashtable, const char *key, const char *value)
 {
         List *node;
 
+        if (hashtable == NULL) {
+                return 1;
+        }
+
         node = malloc(sizeof(List));
         if (node == NULL) {
                 return (1);
@@ -22,6 +26,7 @@ int ht_put(HashTable *hashtable, const char *key, const char *value)
 
         node->key = strdup(key);
         node->value = strdup(value);
+
         node_handler(hashtable, node);
 
         return 0;
@@ -53,7 +58,11 @@ void node_handler(HashTable *hashtable, List *node)
                         node->next = hashtable->array[i];
                         hashtable->array[i] = node;
                 } else {
-                        tmp->value = node->value;
+                        free(tmp->value);
+                        tmp->value = strdup(node->value);
+                        free(node->value);
+                        free(node->key);
+                        free(node);
                 }
         } else {
                 node->next = NULL;
