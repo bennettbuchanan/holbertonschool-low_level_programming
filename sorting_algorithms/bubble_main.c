@@ -3,7 +3,7 @@ void print_array(int *, int);
 
 int main(void)
 {
-  int array[] = {402, 94111, 98, -1, 0};
+  int array[] = {0, 94111, 98, -1, 0};
 
   print_array(array, 5);
   bubble_sort(array, 5);
