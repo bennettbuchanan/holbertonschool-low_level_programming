@@ -1,6 +1,5 @@
 #include <stdlib.h>
 #include "list.h"
-#include <stdio.h>
 
 /*
  * sort_list() - Sorts a list using bubble sort method.
