@@ -20,8 +20,9 @@ int btree_depth(BTree *tree)
 	left = btree_depth(tree->left);
 	right = btree_depth(tree->right);
 
-	if (left > right) {
-		return left + 1;
+	if (left > right)
+	{
+		return (left + 1);
 	}
-	return right + 1;
+	return (right + 1);
 }
