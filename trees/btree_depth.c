@@ -6,24 +6,22 @@
  * @tree: The binary tree to find the depth of.
  *
  * Description: If the tree is NULL, return -1. Otherwise, make a recursive
- * call, adding 1 for one level until both left and right nodes are NULL.
+ * call that returns the greater path for each split, left and right.
  */
 int btree_depth(BTree *tree)
 {
+	int left, right;
+
 	if (tree == NULL) /* Initial tree is NULL. */
 	{
 		return (-1);
 	}
-	else
-	{
-		if (tree->left != NULL)
-		{
-			return (btree_depth(tree->left) + 1);
-		}
-		if (tree->right != NULL)
-		{
-			return (btree_depth(tree->right) + 1);
-		}
+
+	left = btree_depth(tree->left);
+	right = btree_depth(tree->right);
+
+	if (left > right) {
+		return left + 1;
 	}
-	return (0);
+	return right + 1;
 }
