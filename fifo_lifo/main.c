@@ -1,33 +1,27 @@
 #include "header.h"
 
-/* The function 'print_queue' is provided */
-void print_queue(const Queue *);
-
-int push_queue(Queue **, char *);
-char *pop_queue(Queue **);
-
 int main(int ac, char **av)
 {
-        Queue *queue;
+        Stack *stack;
         int i;
         char *str;
 
-        queue = NULL;
+        stack = NULL;
         i = 0;
         while (i < ac)
         {
-                push_queue(&queue, av[i]);
+                push_stack(&stack, av[i]);
                 ++i;
         }
-        print_queue(queue);
-        str = pop_queue(&queue);
+        print_stack(stack);
+        str = pop_stack(&stack);
         printf("%s\n", str);
-        print_queue(queue);
-        str = pop_queue(&queue);
+        print_stack(stack);
+        str = pop_stack(&stack);
         printf("%s\n", str);
-        print_queue(queue);
-        str = pop_queue(&queue);
+        print_stack(stack);
+        str = pop_stack(&stack);
         printf("%s\n", str);
-        print_queue(queue);
+        print_stack(stack);
         return (0);
 }
