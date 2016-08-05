@@ -9,13 +9,13 @@
  */
 char *pop_stack(Stack **stack)
 {
-        Stack *tmp = *stack;
+	Stack *tmp = *stack;
 
-        if (*stack != NULL)
-        {
-                *stack = tmp->next;
-                return(tmp->str);
-        }
+	if (*stack != NULL)
+	{
+		*stack = tmp->next;
+		return (tmp->str);
+	}
 
-        return(NULL);
+	return (NULL);
 }

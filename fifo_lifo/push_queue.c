@@ -10,20 +10,20 @@
  */
 int push_queue(Queue **queue, char *str)
 {
-        Queue *item;
+	Queue *item;
 
-        item = malloc(sizeof(Queue));
-        if (item == NULL)
-        {
-                return (1);
-        }
+	item = malloc(sizeof(Queue));
+	if (item == NULL)
+	{
+		return (1);
+	}
 
-        item->str = strdup(str);
-        item->next = NULL;
+	item->str = strdup(str);
+	item->next = NULL;
 
-        add_queue_item(queue, item);
+	add_queue_item(queue, item);
 
-        return(0);
+	return (0);
 }
 
 /**
@@ -36,19 +36,19 @@ int push_queue(Queue **queue, char *str)
  */
 void add_queue_item(Queue **queue, Queue *item)
 {
-        Queue *tmp = *queue;
+	Queue *tmp = *queue;
 
-        if (*queue == NULL)
-        {
-                *queue = item;
-        }
-        else
-        {
-                while (tmp->next != NULL)
-                {
-                        tmp = tmp->next;
-                }
+	if (*queue == NULL)
+	{
+		*queue = item;
+	}
+	else
+	{
+		while (tmp->next != NULL)
+		{
+			tmp = tmp->next;
+		}
 
-                tmp->next = item;
-        }
+		tmp->next = item;
+	}
 }

@@ -9,13 +9,13 @@
  */
 char *pop_queue(Queue **queue)
 {
-        Queue *tmp = *queue;
+	Queue *tmp = *queue;
 
-        if (*queue != NULL)
-        {
-                *queue = tmp->next;
-                return(tmp->str);
-        }
+	if (*queue != NULL)
+	{
+		*queue = tmp->next;
+		return (tmp->str);
+	}
 
-        return(NULL);
+	return (NULL);
 }

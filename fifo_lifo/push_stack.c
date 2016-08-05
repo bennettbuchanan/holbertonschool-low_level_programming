@@ -10,20 +10,20 @@
  */
 int push_stack(Stack **stack, char *str)
 {
-        Stack *item;
+	Stack *item;
 
-        item = malloc(sizeof(Stack));
-        if (item == NULL)
-        {
-                return (1);
-        }
+	item = malloc(sizeof(Stack));
+	if (item == NULL)
+	{
+		return (1);
+	}
 
-        item->str = strdup(str);
-        item->next = NULL;
+	item->str = strdup(str);
+	item->next = NULL;
 
-        insert_stack_item(stack, item);
+	insert_stack_item(stack, item);
 
-        return(0);
+	return (0);
 }
 
 /**
@@ -36,15 +36,15 @@ int push_stack(Stack **stack, char *str)
  */
 void insert_stack_item(Stack **stack, Stack *item)
 {
-        Stack *tmp = *stack;
+	Stack *tmp = *stack;
 
-        if (*stack == NULL)
-        {
-                *stack = item;
-        }
-        else
-        {
-                item->next = tmp;
-                *stack = item;
-        }
+	if (*stack == NULL)
+	{
+		*stack = item;
+	}
+	else
+	{
+		item->next = tmp;
+		*stack = item;
+	}
 }
