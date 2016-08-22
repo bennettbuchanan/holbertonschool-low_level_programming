@@ -52,10 +52,10 @@ void create_window(SDL_Window* window, SDL_Renderer* renderer)
 void draw_window(SDL_Renderer* renderer)
 {
     int i, j, tmp;
-    int scale = 40;
-    int n = 8;
-    int x1 = WINDOW_WIDTH / 2;
-    int y1 = WINDOW_HEIGHT / 2;
+    int scale = 60;
+    int n = 14;
+    int x1 = WINDOW_WIDTH / 2 - (scale * n / 4) - (scale / 2);
+    int y1 = WINDOW_HEIGHT / 2 - (scale * n / 4);
     int x2 = x1 - scale / 2;
     int y2 = y1 + scale / 2;
 
