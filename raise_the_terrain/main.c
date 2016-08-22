@@ -1,8 +1,4 @@
-#include <SDL2/SDL.h>
-#include <stdio.h>
-
-void create_window(SDL_Window* window, SDL_Renderer* renderer);
-void draw_window(SDL_Renderer* renderer);
+#include "header.h"
 
 int main(void)
 {
@@ -29,13 +25,10 @@ int main(void)
 
 void create_window(SDL_Window* window, SDL_Renderer* renderer)
 {
-    int SCREEN_WIDTH = 1000;
-    int SCREEN_HEIGHT = 700;
-
     //Create window
     window = SDL_CreateWindow("SDL Tutorial", SDL_WINDOWPOS_CENTERED,
-                              SDL_WINDOWPOS_CENTERED, SCREEN_WIDTH,
-                              SCREEN_HEIGHT, 0);
+                              SDL_WINDOWPOS_CENTERED, WINDOW_WIDTH,
+                              WINDOW_HEIGHT, 0);
 
     renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED |
                                   SDL_RENDERER_PRESENTVSYNC);
@@ -58,24 +51,40 @@ void create_window(SDL_Window* window, SDL_Renderer* renderer)
 
 void draw_window(SDL_Renderer* renderer)
 {
-    int startingPoint = 500;
-    int endingPoint = 280;
-
-    SDL_Point points[2];
-
-    points[0].x = 120;
-    points[0].y = 60;
-
-    points[1].x = 40;
-    points[1].y = endingPoint + 10;
-
+    int i, j, tmp;
+    int scale = 40;
+    int n = 8;
+    int x1 = WINDOW_WIDTH / 2;
+    int y1 = WINDOW_HEIGHT / 2;
+    int x2 = x1 - scale / 2;
+    int y2 = y1 + scale / 2;
 
     SDL_SetRenderDrawColor(renderer, 0, 0, 0, 0);
     SDL_RenderClear(renderer);
-    SDL_SetRenderDrawColor(renderer, 0xFF, 0xFF, 0xFF, 0xFF);
-    SDL_RenderDrawLine(renderer, 10, 10, 600, 600);
-    SDL_RenderDrawLines(renderer, points, 2);
-    SDL_RenderPresent(renderer);
+    SDL_SetRenderDrawColor(renderer, 255, 0, 255, 0);
 
-    SDL_Delay(7000);
+    tmp = scale;
+    for (i = 0; i < n; i++) {
+        for (j = 0; j < n; j++) {
+            SDL_RenderDrawLine(renderer, x1 + scale, y1, x2 + scale, y2);
+            if (j + 1 != n) {
+                SDL_RenderDrawLine(renderer, x2 + scale, y2, x2 + scale +
+                                   tmp, y2);
+            }
+            if (i == 0 && j + 1 != n) {
+                SDL_RenderDrawLine(renderer, x1 + scale, y1, x1 + scale +
+                                   tmp, y1);
+            }
+            scale += tmp;
+        }
+
+        scale = tmp;
+        x1 -= scale / 2;
+        x2 -= scale / 2;
+        y1 += scale / 2;
+        y2 += scale / 2;
+    }
+
+    SDL_RenderPresent(renderer);
+    SDL_Delay(10000);
 }
